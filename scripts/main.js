@@ -12,3 +12,25 @@ myImage.onclick = () => {
   }
 }
 
+const myButton = document.querySelector('button');
+addEventListener
+function setUserName() {
+  const myName = prompt('あなたの名前を入力してください。');
+  if (!myName) {
+    setUserName();
+  } else {
+    localStorage.setItem('name', myName);
+    myHeading.textContent = `Mozilla はかっこいいよ、${myName}`;
+  }
+}
+
+if (!localStorage.getItem('name')) {
+  setUserName();
+} else {
+  const storedName = localStorage.getItem('name');
+  myHeading.textContent = `Mozilla はかっこいいよ、${storedName}`;
+}
+
+myButton.onclick = () => {
+  setUserName();
+}
